@@ -7,7 +7,7 @@ const User = sequelize.define('User', {
 
 const Book = sequelize.define('Book', {
   name: { type: DataTypes.STRING, allowNull: false },
-  averageScore: { type: DataTypes.FLOAT, defaultValue: 0 },
+  averageScore: { type: DataTypes.FLOAT, defaultValue: -1 },
   totalScore: { type: DataTypes.INTEGER, defaultValue: 0 },
   ratingCount: { type: DataTypes.INTEGER, defaultValue: 0 },
 });

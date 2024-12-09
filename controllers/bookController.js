@@ -13,15 +13,17 @@ const createBook = async (req, res) => {
 
 
 const getBookById = async (req, res) => {
-  const { id } = req.params; 
-
-  const book = await Book.findByPk(id);
-
-  if (!book) {
-    return res.status(404).json({ error: 'Book not found' }); 
-  }
-
-  res.json(book);
-};
+    const { id } = req.params; 
+  
+    const book = await Book.findByPk(id, {
+      attributes: ['name', 'averageScore'], 
+    });
+  
+    if (!book) {
+      return res.status(404).json({ error: 'Book not found' });
+    }
+  
+    res.json(book);
+  };
 
 module.exports = { getAllBooks, createBook, getBookById };
